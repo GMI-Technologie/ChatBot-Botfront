@@ -1,24 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Widget } from 'rasa-webchat';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Widget
+      initPayload={"Hi"}
+      socketUrl={"http://localhost:5005"}
+      socketPath={"/socket.io/"}
+      customData={{"language": "en"}} // arbitrary custom data. Stay minimal as this will be added to the socket
+      title={"CihBank"}
+      subtitle={"NovaBot"}
+      storage={"session"}
+    />
     </div>
   );
 }
